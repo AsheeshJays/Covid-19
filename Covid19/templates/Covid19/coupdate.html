@@ -1,0 +1,30 @@
+<div class="mb-3 ">
+        <h2 class="text-uppercase text-center">Covid-19 Update</h2>
+</div>
+      <div class=" d-flex justify-content-around align-items-center count_style ">
+        <div>
+        <h2 class="count">{{globalSummary.TotalConfirmed}}</h2>
+        <p>Total  Cases</p>
+      </div>
+      <div>
+        <h2 class="count">{{globalSummary.NewConfirmed}}</h2>
+        <p>New Confirmed</p>
+      </div>
+      <div>
+        <h2 class="count">{{globalSummary.NewDeaths}}</h2>
+        <p>NewDeaths</p>
+      </div>
+      <div>
+        <h2 class="count">{{globalSummary.TotalDeaths}}</h2>
+        <p>Total Deaths</p>
+      </div>
+    </div>
+        
+  </div>
+
+<script type="text/javascript">
+   $('.count').counterUp({
+     delay:10,
+     time:3000
+   })
+</script>

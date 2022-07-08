@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+      {% include 'Covid19/link.html' %}
+    <title>CovidTracker</title>
+</head>
+<body>
+   {% include 'Covid19/navbar.html' %}
+
+   <div class="main_header">
+    <div class="row w-100 h-100">
+      <div class="col-lg-5 col-md-5 col-12 order-lg-1 order-2">
+        <div class="leftside w-100 h-100 d-flex justify-content-center align-items-center">
+          <img src="{% static 'Covid19/images/eksath.png'%}" width="300" height="300">
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-7 col-12 order-lg-2 order-1">
+        <div class="rightside w-100 h-100 d-flex justify-content-center align-items-center">
+          <h1>Let's Stay Safe & Fight Together Against Cor <span class="co_rot"><img src="{% static 'Covid19/images/bacteria.png' %}" height="60" width="60"></span> na Virus</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+    <section class="corona_updat">
+      {% include 'Covid19/coupdate.html' %}
+    </section>
+    
+    
+    
+
+     <div class="container-fluid sub_section pt-5 pb-5" id="aboutid">
+       {% include 'Covid19/about.html' %}
+     </div>
+     
+     <div class="container-fluid  pt-5 pb-5" id="sympid">
+      {% include 'Covid19/symptoms.html' %}
+    </div>
+  
+  <div class="sect_header text-center mb-5 mt-4" id="previd">
+    {% include 'Covid19/prevention.html' %}
+</div>
+
+<div class="container scrolltop float-right pr-5">
+  <i class="fa fa-arrow-up" onclick="topFunction()" id="myBtn"></i>
+</div>
+
+<div  class="text-white text-center container-fluid footer_style">
+  <h2>Copyright by Tech-Asheesh</h2>
+</div>
+
+  {% include 'Covid19/scripttag.html' %}
+
+</body>
+</html>

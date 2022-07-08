@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     {% include 'Covid19/link.html' %}
+    
+    <title>COVID TRACKER</title>
+  </head>
+  <body>
+      <nav class="navbar navbar-expand-lg nav_style p-3">
+  <a class="navbar-brand pl-5" href="/">COVID-19</a>
+  <button class="navbar-toggler butt" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto pr-5 text-capitalize">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#aboutid">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#symptid">Symptoms</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/#previd">Prevention</a>
+      </li>
+       <li class= "nav-item">
+        <a class="nav-link" href="{% url 'indiacorona' %}">IndiaCoranaLive</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'indiadatwise' %}">IndiaDayWise</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'worldcorona' %}">WorldCoranaLive</a>
+      </li>
+      
+
+      
+      
+    </ul> 
+  </div>
+</nav>
+       <div class="main_header">
+      <div class="row w-100 h-100">
+        <div class="col-lg-5 col-md-5 col-12 order-lg-1 order-2">
+          <div class="leftside w-100 h-100 d-flex justify-content-center align-items-center">
+            <img src="{% static 'Covid19/images/eksath.png'%}" width="300" height="300">
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-7 col-12 order-lg-2 order-1">
+          <div class="rightside w-100 h-100 d-flex justify-content-center align-items-center">
+            <h1>Let's Stay Safe & Fight Together Against Cor <span class="co_rot"><img src="{% static 'Covid19/images/bacteria.png' %}" height="60" width="60"></span> na Virus</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+     <div class="sect_header">
+          <h1 class="text-center">COVID-19 LIVE UPDATES OF THE INDIA</h1>
+       </div>
+
+        <table class="table table-hover mt-5">
+                  <thead>
+                      <tr>
+                          <th>S-No.</th>
+                          <th>State</th>
+                          <th>Confirmed Cases</th>
+                          <th>Active Cases</th>
+                          <th>Recovered Cases</th>
+                          <th>Total Death</th> 
+                          <th>Last Update</th>   
+                      </tr>
+                  </thead>
+                  <tbody>
+                    {% for s in statedata %}
+                      <tr class="trr">
+                          <td scope="row">{{forloop.counter}}</td>
+                          <td> {{s.state}}</td>
+                          <td>{{s.active}}</td>
+                          <td>{{s.confirmed}}</td>
+                          <td>{{s.recovered}}</td>
+                          <td>{{s.deaths}}</td>
+                          <td>{{s.lastupdatedtime}}</td>
+                          
+                          
+                      </tr>
+                      {% endfor %}
+                      
+                  </tbody>
+              </table>
+              
+      <footer class="mt-5">
+         {% include 'Covid19/footer.html' %}
+      </footer>
+      
+    <script type="text/javascript">
+      mybutton = document.getElementById("myBtn");
+      window.onscroll = function() {scrollFunction()};
+      function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) 
+    {
+        mybutton.style.display = "block";
+    } 
+    else 
+    {
+        mybutton.style.display = "none";
+    }
+}
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop=0;
+}
+
+    </script> 
+    
+  </body>
+</html>
